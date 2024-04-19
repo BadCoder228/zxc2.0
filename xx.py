@@ -2,7 +2,10 @@ import paho.mqtt.client as q
 import telebot as t
 from telebot import types as ty
 import time
+import art
 on_off = True
+art.tprint('BOT IS STARTED')
+print('SEvaORG©')
 m5 = q.Client(q.CallbackAPIVersion.VERSION1)
 m5.connect("broker.hivemq.com", 1883, 300)
 m5.subscribe('testopic/2',0)
@@ -140,7 +143,7 @@ def code(message):
     'w.subscribe(str("testopic/2"), comms)',
     'w.start()']
     text228 = '\n'.join(txt)
-    bot.reply_to(message, '# а вот и он!:\n\n'+text228+'\n\n# а теперь скопируйте его и вставьте сюда:"https://flow.m5stack.com/", перейдите во вкладку "</>python", вставьте код и после нажмите кнопку "run" (ничего не удалять не надо) и перейдите в телеграмм.После этих действий пропишите комманду "/comms", и управляйте им на здоровье.(SEvaORG *copyright*)' )
+    bot.reply_to(message, '# а вот и он!:\n\n'+text228+'\n\n# а теперь скопируйте его и вставьте сюда:"https://flow.m5stack.com/", перейдите во вкладку "</>python", вставьте код и после нажмите кнопку "run" (ничего не удалять не надо) и перейдите в телеграмм.После этих действий пропишите комманду "/comms", и управляйте им на здоровье.(SEvaORG©)' )
 '''@bot.message_handler(commands=['chSm'])
 def chSm(message):
   chsm= ty.InlineKeyboardMarkup(row_width=1)
@@ -156,58 +159,72 @@ def call1(call):
     if call.message:
         if call.data == 'stra':
             m5.publish('testopic/2', 'stright')
+            print('(/прямо)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/прямо)✅sucess(ive sent da command)')
         if call.data == 'str':
             m5.publish('testopic/2', 'stright2')
+            print('(/прямо(долго))✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/прямо(долго))✅sucess(ive sent da command)')
         elif call.data == 'beh':
             m5.publish('testopic/2', 'behind')
+            print('(/назад)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/назад)✅sucess(ive sent da command)')
         elif call.data == 'lef':
             m5.publish('testopic/2', 'left')
+            print('(/направо)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/направо)✅sucess(ive sent da command)')
         elif call.data == 'rig':
             m5.publish('testopic/2', 'right')
+            print('(/налево)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/налево)✅sucess(ive sent da command)')
         elif call.data == 'hor':
             m5.publish('testopic/2', 'honkers')
+            print('(/громкий_гудок)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/громкий_гудок)✅sucess(ive sent da command)')
         elif call.data == 'reb':
             m5.publish('testopic/2', 'reboot')
+            print('(/перезагрузка)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/перезагрузка)✅sucess(ive sent da command)')
         elif call.data == 're':
             m5.publish('testopic/2', 're')
+            print('(/установлен фон:красный)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлен фон:красный)✅sucess(ive sent da command)')
         elif call.data == 'or':
             m5.publish('testopic/2', 'or')
+            print('(/установлен фон:оранжевый)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлен фон:оранжевый)✅sucess(ive sent da command)')
         elif call.data == 'ye':
             m5.publish('testopic/2', 'ye')
+            print('(/установлен фон:желтый)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлен фон:желтый)✅sucess(ive sent da command)')
         elif call.data == 'gr':
             m5.publish('testopic/2', 'gr')
+            print('(/установлен фон:зеленый)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлен фон:зеленый)✅sucess(ive sent da command)')
         elif call.data == 'cy':
             m5.publish('testopic/2', 'cy')
+            print('(/установлен фон:голубой)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлен фон:голубой)✅sucess(ive sent da command)')
         elif call.data == 'bl':
             m5.publish('testopic/2', 'bl')
+            print('(/установлен фон:синий)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлен фон:синий)✅sucess(ive sent da command)')
         elif call.data == 'pu':
             m5.publish('testopic/2', 'pu')
+            print('(/установлен фон:фиолетовый)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлен фон:фиолетовый)✅sucess(ive sent da command)')
 bot.infinity_polling()

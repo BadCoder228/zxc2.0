@@ -4,7 +4,7 @@ from telebot import types as ty
 import time
 import art
 on_off = True
-art.tprint('BOT IS STARTED')
+art.tprint('BOT IS ONLINE')
 print('SEvaORG©')
 m5 = q.Client(q.CallbackAPIVersion.VERSION1)
 m5.connect("broker.hivemq.com", 1883, 300)
@@ -143,7 +143,7 @@ def code(message):
     'w.subscribe(str("testopic/2"), comms)',
     'w.start()']
     text228 = '\n'.join(txt)
-    bot.reply_to(message, '# а вот и он!:\n\n'+text228+'\n\n# а теперь скопируйте его и вставьте сюда:"https://flow.m5stack.com/", перейдите во вкладку "</>python", вставьте код и после нажмите кнопку "run" (ничего не удалять не надо) и перейдите в телеграмм.После этих действий пропишите комманду "/comms", и управляйте им на здоровье.(SEvaORG©)' )
+    bot.reply_to(message, '# а вот и он!:\n\n'+text228+'\n\n# а теперь скопируйте его и вставьте сюда:"https://flow.m5stack.com/", перейдите во вкладку "</>python", вставьте код и после нажмите кнопку "run" (ничего не удалять не надо) и перейдите в телеграмм.После этих действий пропишите комманду "/comms", и управляйте им на здоровье.(!ЕСЛИ В М5 ПОПРОСЯТ КОД ТО ВВЕДИТЕ: D58D8813!)(SEvaORG©)' )
 '''@bot.message_handler(commands=['chSm'])
 def chSm(message):
   chsm= ty.InlineKeyboardMarkup(row_width=1)

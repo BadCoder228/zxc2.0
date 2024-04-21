@@ -42,7 +42,9 @@ def chSm(message):
           global tttext  
           tttext = message.text
           m5.publish('testopic/2', tttext[:3])
-          bot.send_message(message.chat.id,'(/установлен каастомный текст)✅sucess(ive sent da command)\n если вы закончили -> "/chSmONOFF"')
+          bot.send_message(message.chat.id , 'если вы закончили -> "/chSmONOFF"')
+          if on_off == True:
+            bot.send_message(message.chat.id,'(/установлен каастомный текст)✅sucess(ive sent da command')
           print('(/установлен каастомный текст)✅sucess(ive sent da command)')
       bot.register_next_step_handler(message, message_input_step)
     else:

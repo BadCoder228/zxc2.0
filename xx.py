@@ -22,7 +22,16 @@ def on_message(message):
     i6 = ty.InlineKeyboardButton('отключиться', callback_data='reb')
     i = ty.InlineKeyboardButton('прямо(по прямой)', callback_data='str')
     markup.add(i,i1,i2,i3,i4,i5,i6)
-    bot.send_message(message.chat.id, 'перед тем как бездумно тыкать на кнопочки, зайдите сюда-> https://www.hivemq.com/demos/websocket-client/, а после создайте заголовок "testopic/2".Ну а чтобы получить код на РОбота просто пропишите ниже комманду "/code", а если вы все сделали, то зацените эти комманды:\n "/chBg" - меняет цвет заливки,\n "/assis_msgs_onoff"- вкл/выкл сообщения о роботе\n"/chSm" - меняет мордашку\n"/chSmONOFF" - права на изменение мордашки', reply_markup=markup)
+    bot.send_message(message.chat.id, 'перед тем как бездумно тыкать на кнопочки, зайдите сюда-> https://www.hivemq.com/demos/websocket-client/, а после создайте заголовок "testopic/2".Ну а чтобы получить код на РОбота просто пропишите ниже комманду "/code", а если вы все сделали, то зацените эти комманды:\n "/chBg" - меняет цвет заливки,\n "/assis_msgs_onoff"- вкл/выкл сообщения о роботе\n"/chSm" - меняет мордашку\n"/chSmONOFF" - права на изменение мордашки\n"/rtSm" - поворачивает смайл на роботе', reply_markup=markup)
+@bot.message_handler(commands=['rtSm'])
+def rtsm(message):
+  mrkp = ty.InlineKeyboardMarkup(row_width=1)
+  w1 = ty.InlineKeyboardButton("0'", callback_data="0'")
+  w2 = ty.InlineKeyboardButton("90'", callback_data="90'")
+  w3 = ty.InlineKeyboardButton("180'", callback_data="180'")
+  w4 = ty.InlineKeyboardButton("270'", callback_data="270'")
+  mrkp.add(w1,w2,w3,w4)
+  bot.send_message(message.chat.id, 'выбирите на сколько градусов вы хотите повернуть ваш эмоджи', reply_markup=mrkp)
 @bot.message_handler(commands=['chSm'])
 def chSm(message):
     if Flag_rob ==True:
@@ -90,6 +99,14 @@ def code(message):
         '        wait_ms(1000)',
         '        m.set_motor_speed(2, 0)',
         '        m.set_motor_speed(1, 0)',
+      "    elif topic_data=='zero':",
+        '        l0.setRotate(0)',
+      "    elif topic_data=='nint':",
+        '        l0.setRotate(90)',
+      "    elif topic_data=='oneh':",
+        '        l0.setRotate(180)',
+      "    elif topic_data=='twoh':",
+        '        l0.setRotate(270)',
       "    elif topic_data=='redd':",
         '        l.setColor(0xffff00)',
         '        l0.setColor(0x5400f5)',
@@ -244,5 +261,33 @@ def call1(call):
             print('(/установлен фон:фиолетовый)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлен фон:фиолетовый)✅sucess(ive sent da command)')
+        elif call.data == "0'":
+            m5.publish('testopic/2', "zero")
+            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:0')
+            bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
+            print('(/установлено положение эмоджи:0)✅sucess(ive sent da command)')
+            if on_off == True:
+              bot.send_message(call.message.chat.id, '(/установлено положение эмоджи:0)✅sucess(ive sent da command)')
+        elif call.data == "90'":
+            m5.publish('testopic/2', "nint")
+            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:90')
+            bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
+            print('(/установлено положение эмоджи:90)✅sucess(ive sent da command)')
+            if on_off == True:
+              bot.send_message(call.message.chat.id, '(/установлено положение эмоджи:90)✅sucess(ive sent da command)')
+        elif call.data == "180'":
+            m5.publish('testopic/2', "oneh")
+            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:180')
+            bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
+            print('(/установлено положение эмоджи:180)✅sucess(ive sent da command)')
+            if on_off == True:
+              bot.send_message(call.message.chat.id, '(/установлено положение эмоджи:180)✅sucess(ive sent da command)')
+        elif call.data == "270'":
+            m5.publish('testopic/2', "twoh")
+            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:270')
+            bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
+            print('(/установлено положение эмоджи:270)✅sucess(ive sent da command)')
+            if on_off == True:
+              bot.send_message(call.message.chat.id, '(/установлено положение эмоджи:270)✅sucess(ive sent da command)')
 bot.infinity_polling()
 m5.loop_forever()

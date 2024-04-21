@@ -33,20 +33,20 @@ def chSm(message):
           global tttext  
           tttext = message.text
           m5.publish('testopic/2', tttext[:3])
-          bot.send_message(message.chat.id,'(/установлен каастомный текст)✅sucess(ive sent da command)')
+          bot.send_message(message.chat.id,'(/установлен каастомный текст)✅sucess(ive sent da command)\n если вы закончили -> "/chSmONOFF"')
           print('(/установлен каастомный текст)✅sucess(ive sent da command)')
       bot.register_next_step_handler(message, message_input_step)
     else:
-      bot.send_message(message.chat.id, 'включите права на изменение мордашки!\n если вы закончили, чтобы выключить(права) -> "/chSmONOFF"')
+      bot.send_message(message.chat.id, 'включите права на изменение мордашки!\nчтобы выключить(права) -> "/chSmONOFF"')
 @bot.message_handler(commands=['chSmONOFF'])
 def sss(message):
   global Flag_rob
   if Flag_rob == True:
     Flag_rob = False
-    bot.send_message(message.chat.id, 'изменение мордашки выключено, для включения -> "/chSmONOFF"\nк командам -> "/comms"')
+    bot.send_message(message.chat.id, 'изменение мордашки выключено, для включения -> "/chSmONOFF"\nк командам -> "/comms"\n к редактированию мордашек -> "/chSm"')
   else:
     Flag_rob = True
-    bot.send_message(message.chat.id, 'изменение мордашки включено, для выключения -> "/chSmONOFF"\nк командам -> "/comms"')
+    bot.send_message(message.chat.id, 'изменение мордашки включено, для выключения -> "/chSmONOFF"\nк командам -> "/comms"\n к редактированию мордашек -> "/chSm"')
 @bot.message_handler(commands=['chBg'])
 def chBg(message):
   chbg= ty.InlineKeyboardMarkup(row_width=1)

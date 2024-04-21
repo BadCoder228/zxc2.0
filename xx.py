@@ -34,9 +34,10 @@ def chSm(message):
           tttext = message.text
           m5.publish('testopic/2', tttext[:3])
           bot.send_message(message.chat.id,'(/установлен каастомный текст)✅sucess(ive sent da command)')
+          print('(/установлен каастомный текст)✅sucess(ive sent da command)')
       bot.register_next_step_handler(message, message_input_step)
     else:
-      bot.send_message(message.chat.id, 'включите права на изменение мордашки!(когда не надо выключайте)')
+      bot.send_message(message.chat.id, 'включите права на изменение мордашки!\n если вы закончили, чтобы выключить(права) -> "/chSmONOFF"')
 @bot.message_handler(commands=['chSmONOFF'])
 def sss(message):
   global Flag_rob

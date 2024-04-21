@@ -263,28 +263,28 @@ def call1(call):
               bot.send_message(call.message.chat.id, '(/установлен фон:фиолетовый)✅sucess(ive sent da command)')
         elif call.data == "0'":
             m5.publish('testopic/2', "zero")
-            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:0')
+            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:0\nк командам -> "/comms"')
             bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
             print('(/установлено положение эмоджи:0)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлено положение эмоджи:0)✅sucess(ive sent da command)')
         elif call.data == "90'":
             m5.publish('testopic/2', "nint")
-            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:90')
+            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:90\nк командам -> "/comms"')
             bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
             print('(/установлено положение эмоджи:90)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлено положение эмоджи:90)✅sucess(ive sent da command)')
         elif call.data == "180'":
             m5.publish('testopic/2', "oneh")
-            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:180')
+            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:180\nк командам -> "/comms"')
             bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
             print('(/установлено положение эмоджи:180)✅sucess(ive sent da command)')
             if on_off == True:
               bot.send_message(call.message.chat.id, '(/установлено положение эмоджи:180)✅sucess(ive sent da command)')
         elif call.data == "270'":
             m5.publish('testopic/2', "twoh")
-            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:270')
+            bot.send_message(call.message.chat.id, 'установлено положение эмоджи:270\nк командам -> "/comms"')
             bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
             print('(/установлено положение эмоджи:270)✅sucess(ive sent da command)')
             if on_off == True:

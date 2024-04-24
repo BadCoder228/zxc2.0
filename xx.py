@@ -96,8 +96,8 @@ def code(message):
     'rg.setColorAll(0xffe5b4)',
     "def comms(topic_data):",
       "    if topic_data=='stright':",
-        '        m.set_motor_speed(2, 90)',
-        '        m.set_motor_speed(1, 90)',
+        '        m.set_motor_speed(2, -90)',
+        '        m.set_motor_speed(1, -90)',
         '        wait_ms(1000)',
         '        m.set_motor_speed(2, 0)',
         '        m.set_motor_speed(1, 0)',
@@ -152,28 +152,28 @@ def code(message):
         '        l.show()',
         '        l0.show()',
       "    elif topic_data=='stright2':",
-        '        m.set_motor_speed(2, 90)',
-        '        m.set_motor_speed(1, 90)',
+        '        m.set_motor_speed(2, -90)',
+        '        m.set_motor_speed(1, -90)',
         '        wait_ms(7000)',
         '        m.set_motor_speed(2, 0)',
         '        m.set_motor_speed(1, 0)',
       "    elif len(topic_data) <=3:",
         '        l0.setText(topic_data)',
       "    elif topic_data=='behind':",
-        '        m.set_motor_speed(2, -90)',
-        '        m.set_motor_speed(1, -90)',
+        '        m.set_motor_speed(2, 90)',
+        '        m.set_motor_speed(1, 90)',
         '        wait_ms(1000)',
         '        m.set_motor_speed(2, 0)',
         '        m.set_motor_speed(1, 0)',
       "    elif topic_data=='right':",
-        '        m.set_motor_speed(1, 90)',
-        '        m.set_motor_speed(2, -90)',
+        '        m.set_motor_speed(1, -90)',
+        '        m.set_motor_speed(2, 90)',
         '        wait_ms(500)',
         '        m.set_motor_speed(1, 0)',
         '        m.set_motor_speed(2, 0)',
       "    elif topic_data=='left':",
-        '        m.set_motor_speed(2, 90)',
-        '        m.set_motor_speed(1, -90)',
+        '        m.set_motor_speed(2, -90)',
+        '        m.set_motor_speed(1, 90)',
         '        wait_ms(500)',
         '        m.set_motor_speed(2, 0)',
         '        m.set_motor_speed(1, 0)',
@@ -212,12 +212,12 @@ def call1(call):
             m5.publish('testopic/2', 'left')
             print('(/направо)✅sucess(ive sent da command)')
             if on_off == True:
-              bot.send_message(call.message.chat.id, '(/направо)✅sucess(ive sent da command)')
+              bot.send_message(call.message.chat.id, '(/налево)✅sucess(ive sent da command)')
         elif call.data == 'rig':
             m5.publish('testopic/2', 'right')
             print('(/налево)✅sucess(ive sent da command)')
             if on_off == True:
-              bot.send_message(call.message.chat.id, '(/налево)✅sucess(ive sent da command)')
+              bot.send_message(call.message.chat.id, '(/направо)✅sucess(ive sent da command)')
         elif call.data == 'hor':
             m5.publish('testopic/2', 'honkers')
             print('(/громкий_гудок)✅sucess(ive sent da command)')
